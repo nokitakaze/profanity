@@ -301,7 +301,8 @@ int main(int argc, char * * argv) {
 			std::cout << "  Compiling kernel..." << std::flush;
 			const std::string strKeccak = readFile("keccak.cl");
 			const std::string strVanity = readFile("profanity.cl");
-			const char * szKernels[] = { strKeccak.c_str(), strVanity.c_str() };
+			const std::string strElliptic = readFile("elliptic.cl");
+			const char *szKernels[] = {strKeccak.c_str(), strElliptic.c_str(), strVanity.c_str()};
 
 			clProgram = clCreateProgramWithSource(clContext, sizeof(szKernels) / sizeof(char *), szKernels, NULL, &errorCode);
 			if (printResult(clProgram, errorCode)) {

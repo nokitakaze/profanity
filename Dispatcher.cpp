@@ -93,8 +93,15 @@ cl_command_queue Dispatcher::Device::createQueue(cl_context & clContext, cl_devi
 }
 
 cl_kernel Dispatcher::Device::createKernel(cl_program & clProgram, const std::string s) {
-	cl_kernel ret  = clCreateKernel(clProgram, s.c_str(), NULL);
-	return ret == NULL ? throw std::runtime_error("failed to create kernel \"" + s + "\"") : ret;
+	cl_int err_code = 0;
+	cl_kernel ret  = clCreateKernel(clProgram, s.c_str(), &err_code);
+	if (ret != NULL){
+		return ret;
+	}
+
+	const std::string errString = "failed to create kernel \"" + s + "\" initialized err code = " + toString(err_code);
+
+	throw std::runtime_error(errString);
 }
 
 cl_ulong4 Dispatcher::Device::createSeed() {
