@@ -120,8 +120,8 @@ cl_ulong4 Dispatcher::Device::createSeed() {
 	r.s[0] = (((uint64_t)rd()) << 32) | rd();
 	r.s[1] = (((uint64_t)rd()) << 32) | rd();
 	r.s[2] = (((uint64_t)rd()) << 32) | rd();
-	r.s[3] = (((uint64_t)rd() & 0x00ffffff) << 32) | rd();
-	// zeroing the highest byte to prevent overflowing
+	r.s[3] = (((uint64_t)rd() & 0x0fffffff) << 32) | rd();
+	// zeroing the highest 4 bits to prevent overflowing
 	return r;
 #endif
 }
