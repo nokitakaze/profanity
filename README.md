@@ -8,7 +8,8 @@ The case:
 - https://blog.1inch.io/a-vulnerability-disclosed-in-profanity-an-ethereum-vanity-address-tool-68ed7455fc8c?gi=a2eca9275edd
 - https://github.com/johguse/profanity/issues/61
 
-The bug was fixed in 9e69548a5b5
+The bug was fixed
+in [9e69548a5b5](https://github.com/nokitakaze/profanity/commit/9e69548a5b517149f4c6e799206fb5f83cc97511).
 
 ## Releases
 Latest release compiled for 64-bit Windows can be found [here](https://github.com/nokitakaze/profanity/releases).
